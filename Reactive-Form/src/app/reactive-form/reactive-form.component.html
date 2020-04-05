@@ -1,0 +1,117 @@
+<h2 class="text-center">{{title}}</h2>
+<hr>
+<div class="container">  
+    <h4 class="well text-center">Registration Form</h4>  
+      <form [formGroup]="registrationForm" (ngSubmit)="onRegistrationFormSubmit()">  
+          <div class="row">  
+            <div class="col-md-12 col-sm-12 form-group">  
+              <label> Name <span class="lblError">*</span></label>  
+              <input type="text" placeholder="name" formControlName="name" class="form-control" />  
+              <div *ngIf="registrationForm.get('name').errors  && isSubmitted">  
+                <div *ngIf="registrationForm.get('name').hasError('required')">  
+                  <span style="color: red;">Please Enter  Name.</span>  
+                </div>  
+                <div *ngIf="registrationForm.get('name').hasError('minlength')">  
+                  <span style="color: red;">Name requied atleast 3 characters.</span>  
+                </div>  
+                <div *ngIf="registrationForm.get('name').hasError('maxlength')">  
+                  <span style="color: red;">Name requied only 10 characters.</span>  
+                </div>  
+                <div *ngIf="registrationForm.get('name').hasError('pattern')">  
+                  <span style="color: red;">Only characters are allowed.</span>  
+                </div>  
+              </div>  
+            </div>  
+           
+          </div>  
+          
+          <div class="form-group">  
+            <label>Phone Number  <span class="lblError">*</span></label>  
+            <input type="text" placeholder="Phone Number" formControlName="phoneNumber" class="form-control" appPhoneMask/>  
+            <div *ngIf="registrationForm.get('phoneNumber').errors && isSubmitted">  
+              <div *ngIf="registrationForm.get('phoneNumber').hasError('required')">  
+                <span style="color: red;">Please Enter Phone Number.</span>  
+              </div>  
+              <div *ngIf="registrationForm.get('phoneNumber').hasError('minlength')">  
+                <span style="color: red;">Phone Number requied atleast 8 characters.</span>  
+              </div>  
+              <div *ngIf="registrationForm.get('phoneNumber').hasError('maxlength')">  
+                <span style="color: red;">Phone Number requied only 12 characters.</span>  
+              </div>  
+              <div *ngIf="registrationForm.get('phoneNumber').hasError('pattern')">  
+                <span style="color: red;">Only Numbers are allowed.</span>  
+              </div>  
+            </div>  
+          </div>  
+          <div class="row">  
+            <div class="col-md-12 col-sm-12 form-group">  
+              <label> Email <span class="lblError">*</span></label>  
+              <input type="text" placeholder="Email Address" formControlName="email" class="form-control" />  
+              <div *ngIf="registrationForm.get('email').errors && isSubmitted">  
+                <div *ngIf="registrationForm.get('email').hasError('required')">  
+                  <span style="color: red;">Please Enter Email.</span>  
+                </div>  
+                <div *ngIf="registrationForm.get('email').hasError('minlength')">  
+                  <span style="color: red;">The email requied atleast 5 characters.</span>  
+                </div>  
+                <div *ngIf="registrationForm.get('email').hasError('maxlength')">  
+                  <span style="color: red;">The email requied only 30 characters.</span>  
+                </div>  
+                <div *ngIf="registrationForm.get('email').hasError('pattern')">  
+                  <span style="color: red;">The Email is not valid.</span>  
+                </div>  
+              </div>  
+            </div>  
+            <div class="col-md-12 col-sm-12 form-group">  
+              <label> Password <span class="lblError">*</span></label>  
+              <input type="password" placeholder="Password" formControlName="password" class="form-control" />  
+              <div *ngIf="registrationForm.get('password').errors && isSubmitted">  
+                <div *ngIf="registrationForm.get('password').hasError('required')">  
+                  <span style="color: red;">Please Enter Password.</span>  
+                </div>  
+                <div *ngIf="registrationForm.get('password').hasError('minlength')">  
+                  <span style="color: red;">The password requied atleast 5 characters.</span>  
+                </div>  
+                <div *ngIf="registrationForm.get('password').hasError('maxlength')">  
+                  <span style="color: red;">The password requied only 12 characters.</span>  
+                </div>  
+                <div *ngIf="registrationForm.get('password').hasError('pattern')">  
+                    <span style="color: red;">The password must be contain 1 small letter, 1 upper case letter & number.</span>  
+                  </div> 
+              </div>  
+            </div>  
+          </div>  
+      
+          <div class="form-group" >
+            <div class="form-check form-check-inline">
+                <!-- Gender -->
+                <input type="radio" id="genderMale" class="form-check-input" formControlName="userGender" value="Male">
+                <label class="form-check-label" for="genderMale">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" id="genderFemale" class="form-check-input" formControlName="userGender" value="Female">
+                <label class="form-check-label" for="genderFeMale">Female</label>
+            </div>
+          </div>
+    
+            <div class="formGroup">
+                <input #Image type="file" class="p-bottom" formControlName="profilePicUrl" (change)="handleFileInput($event.target.files)"/>
+                <img width="25%" *ngIf="imageUrl" [src]="imageUrl" class="image">
+                <div *ngIf="registrationForm.get('profilePicUrl').errors && isSubmitted">  
+                <div *ngIf="registrationForm.get('profilePicUrl').hasError('required')">  
+                    <span style="color: red;"> file is required. </span>  
+                  </div> 
+                  </div>
+            </div>
+          <div class="form-group"> 
+            <!-- [disabled]="!registrationForm.valid"  -->
+             <button type="submit" class="btn btn-primary" style="width: 25% !important">Sign Up</button>  
+          </div>
+      </form>
+  
+    
+</div>
+
+  <!-- https://www.c-sharpcorner.com/article/reactive-forms-and-validation-in-angular-with-typescript/ -->
+  <!-- https://stackoverflow.com/questions/51741573/angular-reactive-forms-pattern-validator-adding-to-regex-and-breaking-validati -->
+  <!-- https://hubstaff.com/signup?message=You+are+invited+to+join+the+WDCS+team+on+Hubstaff+to+track+your+time.+To+accept+the+invite+simply+fill+out+the+form+below+and+click+Create+or+Sign+in+with+your+existing+account.&message_sig=acdf8b7ddc9032a8e64e9a3bf9ce722adc2fbe0f&org_invite_token=t4vzz7TsM0QI3nMKtZ5E4A -->

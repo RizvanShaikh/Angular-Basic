@@ -1,0 +1,14 @@
+.lblError {
+    color: red;
+}
+.container {
+    width: 50%;
+}
+.p-bottom {
+ padding-bottom: 20px;
+}
+
+/* sweet alert */
+body {
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  }
