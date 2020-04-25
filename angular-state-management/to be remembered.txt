@@ -1,0 +1,7 @@
+https://medium.com/@suneetbansal/angular-with-ngrx-54c5e146ca25
+
+npm install --save-dev @angular-devkit/build-angular
+ng new angular-state-management
+npm install @ngrx/store --save
+
+ng g class models/customer

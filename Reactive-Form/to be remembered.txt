@@ -1,0 +1,5 @@
+https://www.c-sharpcorner.com/article/reactive-forms-and-validation-in-angular-with-typescript 
+
+https://stackoverflow.com/questions/51741573/angular-reactive-forms-pattern-validator-adding-to-regex-and-breaking-validati 
+
+https://hubstaff.com/signup?message=You+are+invited+to+join+the+WDCS+team+on+Hubstaff+to+track+your+time.+To+accept+the+invite+simply+fill+out+the+form+below+and+click+Create+or+Sign+in+with+your+existing+account.&message_sig=acdf8b7ddc9032a8e64e9a3bf9ce722adc2fbe0f&org_invite_token=t4vzz7TsM0QI3nMKtZ5E4A 
